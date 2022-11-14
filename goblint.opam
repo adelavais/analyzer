@@ -21,6 +21,7 @@ bug-reports: "https://github.com/goblint/analyzer/issues"
 depends: [
   "dune" {>= "3.6"}
   "ocaml" {>= "4.10"}
+  "dune" {>= "2.9" & >= "3.0"}
   "goblint-cil" {>= "2.0.1"}
   "batteries" {>= "3.4.0"}
   "zarith" {>= "1.8"}
