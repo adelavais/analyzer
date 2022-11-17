@@ -14,7 +14,7 @@ Both for using an up-to-date version of Goblint or developing it, the best way i
 
 ### Linux
 1. Install [opam](https://opam.ocaml.org/doc/Install.html).
-2. Make sure the following packages are installed: `git` `patch` `m4` `autoconf` `libgmp-dev` `libmpfr-dev` `pkg-config`.
+2. Make sure the following are installed: `git` `patch` `m4` `autoconf` `libgmp-dev` `libmpfr-dev` `pkg-config`.
 3. Run `make setup` to install OCaml and dependencies via opam.
    1. In case Goblint needs to be compiled with `flambda` optimizations, then run `make setup-flambda` instead
 4. Run `make` to build Goblint itself.
