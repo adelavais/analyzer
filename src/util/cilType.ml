@@ -106,7 +106,24 @@ struct
   (* Identity *)
   (* Enum type, so polymorphic identity is fine. *)
   (* Monomorphize polymorphic operations for optimization. *)
-  let equal (x: t) (y: t) = x = y
+  let _equal (xy: t * t) = match xy with
+    | (IChar, IChar) -> true
+    | (ISChar, ISChar) -> true
+    | (IUChar, IUChar) -> true
+    | (IBool, IBool) -> true
+    | (IInt, IInt) -> true
+    | (IUInt, IUInt) -> true
+    | (IShort, IShort) -> true
+    | (IUShort, IUShort) -> true
+    | (ILong, ILong) -> true
+    | (IULong, IULong) -> true
+    | (ILongLong, ILongLong) -> true
+    | (IULongLong, IULongLong) -> true
+    | (IInt128, IInt128) -> true
+    | (IUInt128, IUInt128) -> true
+    | _ -> false;;
+
+  let equal (x: t) (y: t) = _equal (x,y)
   let compare (x: t) (y: t) = Stdlib.compare x y
   let hash (x: t) = Hashtbl.hash x
 
@@ -131,7 +148,16 @@ struct
   (* Identity *)
   (* Enum type, so polymorphic identity is fine. *)
   (* Monomorphize polymorphic operations for optimization. *)
-  let equal (x: t) (y: t) = x = y
+  let _equal (xy: t * t) = match xy with
+    | (FFloat, FFloat) -> true
+    | (FDouble, FDouble) -> true
+    | (FLongDouble, FLongDouble) -> true
+    | (FComplexFloat, FComplexFloat) -> true
+    | (FComplexDouble, FComplexDouble) -> true
+    | (FComplexLongDouble, FComplexLongDouble) -> true
+    | _ -> false;;
+
+  let equal (x: t) (y: t) = _equal (x,y)
   let compare (x: t) (y: t) = Stdlib.compare x y
   let hash (x: t) = Hashtbl.hash x
 
@@ -156,7 +182,13 @@ struct
   (* Identity *)
   (* Enum type, so polymorphic identity is fine. *)
   (* Monomorphize polymorphic operations for optimization. *)
-  let equal (x: t) (y: t) = x = y
+  let _equal (xy: t * t) = match xy with
+    | (Neg, Neg) -> true
+    | (BNot, BNot) -> true
+    | (LNot, LNot) -> true
+    | _ -> false;;
+
+  let equal (x: t) (y: t) = _equal (x,y)
   let compare (x: t) (y: t) = Stdlib.compare x y
   let hash (x: t) = Hashtbl.hash x
 
@@ -181,7 +213,32 @@ struct
   (* Identity *)
   (* Enum type, so polymorphic identity is fine. *)
   (* Monomorphize polymorphic operations for optimization. *)
-  let equal (x: t) (y: t) = x = y
+  let _equal (xy: t * t) = match xy with
+      | (PlusA, PlusA) -> true
+      | (PlusPI, PlusPI) -> true
+      | (IndexPI, IndexPI) -> true
+      | (MinusA, MinusA) -> true
+      | (MinusPI, MinusPI) -> true
+      | (MinusPP, MinusPP) -> true
+      | (Mult, Mult) -> true
+      | (Div, Div) -> true
+      | (Mod, Mod) -> true
+      | (Shiftlt, Shiftlt) -> true
+      | (Shiftrt, Shiftrt) -> true
+      | (Lt, Lt) -> true
+      | (Gt, Gt) -> true
+      | (Le, Le) -> true
+      | (Ge, Ge) -> true
+      | (Eq, Eq) -> true
+      | (Ne, Ne) -> true
+      | (BAnd, BAnd) -> true
+      | (BXor, BXor) -> true
+      | (BOr, BOr) -> true
+      | (LAnd, LAnd) -> true
+      | (LOr, LOr) -> true
+      | _ -> false;;
+
+  let equal (x: t) (y: t) = _equal (x,y)
   let compare (x: t) (y: t) = Stdlib.compare x y
   let hash (x: t) = Hashtbl.hash x
 
@@ -206,7 +263,13 @@ struct
   (* Identity *)
   (* Enum type, so polymorphic identity is fine. *)
   (* Monomorphize polymorphic operations for optimization. *)
-  let equal (x: t) (y: t) = x = y
+  let _equal (xy: t * t) = match xy with
+    | (Wchar_t, Wchar_t) -> true
+    | (Char16_t, Char16_t) -> true
+    | (Char32_t, Char32_t) -> true
+    | _ -> false;;
+
+  let equal (x: t) (y: t) = _equal(x,y)
   let compare (x: t) (y: t) = Stdlib.compare x y
   let hash (x: t) = Hashtbl.hash x
 
@@ -234,7 +297,12 @@ struct
   (* Identity *)
   (* Enum type, so polymorphic identity is fine. *)
   (* Monomorphize polymorphic operations for optimization. *)
-  let equal (x: t) (y: t) = x = y
+  let _equal (xy: t * t) = match xy with
+      | (No_encoding, No_encoding) -> true
+      | (Utf8, Utf8) -> true
+      | _ -> false;;
+
+  let equal (x: t) (y: t) = _equal(x,y)
   let compare (x: t) (y: t) = Stdlib.compare x y
   let hash (x: t) = Hashtbl.hash x
 
