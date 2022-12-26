@@ -114,13 +114,9 @@ struct
     | IULongLong
     | IInt128
     | IUInt128
+  [@@deriving eq, ord, hash]
 
   let name () = "ikind"
-
-  (* Identity *)
-  let equal (x: t) (y: t) = x = y
-  let compare (x: t) (y: t) = Stdlib.compare x y
-  let hash (x: t) = Hashtbl.hash x
 
   (* Output *)
   let pretty () x = d_ikind () x
@@ -143,13 +139,9 @@ struct
     | FComplexFloat
     | FComplexDouble
     | FComplexLongDouble
+  [@@deriving eq, ord, hash]
 
   let name () = "fkind"
-
-  (* Identity *)
-  let equal (x: t) (y: t) = x = y
-  let compare (x: t) (y: t) = Stdlib.compare x y
-  let hash (x: t) = Hashtbl.hash x
 
   (* Output *)
   let pretty () x = d_fkind () x
@@ -169,13 +161,9 @@ struct
     | Neg
     | BNot
     | LNot
+  [@@deriving eq, ord, hash]
 
   let name () = "unop"
-
-  (* Identity *)
-  let equal (x: t) (y: t) = x = y
-  let compare (x: t) (y: t) = Stdlib.compare x y
-  let hash (x: t) = Hashtbl.hash x
 
   (* Output *)
   let pretty () x = d_unop () x
@@ -214,13 +202,9 @@ struct
     | BOr
     | LAnd
     | LOr
+  [@@deriving eq, ord, hash]
 
   let name () = "binop"
-
-  (* Identity *)
-  let equal (x: t) (y: t) = x = y
-  let compare (x: t) (y: t) = Stdlib.compare x y
-  let hash (x: t) = Hashtbl.hash x
 
   (* Output *)
   let pretty () x = d_binop () x
@@ -240,13 +224,9 @@ struct
     | Wchar_t
     | Char16_t
     | Char32_t
+  [@@deriving eq, ord, hash]
 
   let name () = "wstring_type"
-
-  (* Identity *)
-  let equal (x: t) (y: t) = x = y
-  let compare (x: t) (y: t) = Stdlib.compare x y
-  let hash (x: t) = Hashtbl.hash x
 
   (* Output *)
   let show = function
@@ -268,13 +248,9 @@ struct
   type t = encoding =
     | No_encoding
     | Utf8
+  [@@deriving eq, ord, hash]
 
   let name () = "encoding"
-
-  (* Identity *)
-  let equal (x: t) (y: t) = x = y
-  let compare (x: t) (y: t) = Stdlib.compare x y
-  let hash (x: t) = Hashtbl.hash x
 
   (* Output *)
   let show = function
